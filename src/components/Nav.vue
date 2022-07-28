@@ -1,0 +1,32 @@
+<script setup lang="ts">
+const navs = [
+  {
+    name: 'Blog',
+    link: '/posts',
+  },
+  {
+    name: 'Archived',
+    link: '/archived',
+  },
+]
+</script>
+
+<template>
+  <div flex justify-between w="100vw" h="16" items-center>
+    <RouterLink to="/" class="logo" px-4>
+      Qiutongxue
+    </RouterLink>
+    <div class="nav">
+      <RouterLink
+        v-for="nav in navs" :key="nav.name" :to="nav.link"
+        px-4
+      >
+        {{ nav.name }}
+      </RouterLink>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+
+</style>
