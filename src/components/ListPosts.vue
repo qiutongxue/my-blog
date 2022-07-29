@@ -11,8 +11,8 @@ const routes = router.getRoutes()
   .filter(route => route.path.startsWith('/posts/'))
   .map((route) => {
     const routeName = String(route.name)
-    const name = routeName.slice(routeName.indexOf('-') + 1)
     const frontmatter = route.meta.frontmatter as Record<string, any>
+    const name = frontmatter.title || routeName.slice(routeName.indexOf('-') + 1)
     frontmatter.date = dateFormatter(frontmatter.date)
     const path = route.path
     return {
