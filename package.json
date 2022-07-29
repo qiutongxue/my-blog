@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "@types/nprogress": "^0.2.0",
     "@unocss/reset": "^0.44.7",
     "@vitejs/plugin-vue": "^3.0.0",
+    "critters": "^0.0.16",
     "diacritics": "^1.3.0",
     "eslint": "^8.20.0",
     "fs-extra": "^10.1.0",
