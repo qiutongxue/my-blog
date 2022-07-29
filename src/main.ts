@@ -14,8 +14,10 @@ import routes from '~pages'
 export const createApp = ViteSSG(
   App,
   { routes },
-  ({ router }) => {
-    router.beforeEach(() => { NProgress.start() })
-    router.afterEach(() => { NProgress.done() })
+  ({ router, isClient }) => {
+    if (isClient) {
+      router.beforeEach(() => { NProgress.start() })
+      router.afterEach(() => { NProgress.done() })
+    }
   },
 )

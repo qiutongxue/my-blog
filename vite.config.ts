@@ -17,6 +17,9 @@ import footnote from 'markdown-it-footnote'
 import slugify from './scripts/slugify'
 import { containerPlugin } from './plugins/container'
 
+const customTags = new Set(['mi', 'mrow', 'annotation', 'mover', 'mo', 'semantics', 'math', 'eq',
+  'mfrac', 'mstyle', 'mn', 'eqn', 'mtext', 'msub', 'mspace', 'msubsup', 'msup', 'mtd', 'mtr', 'mtable', 'center'])
+
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
@@ -25,9 +28,24 @@ export default defineConfig({
     ],
   },
   plugins: [
+    UnoCSS({
+      presets: [
+        presetUno(),
+        presetAttributify(),
+      ],
+    }),
+
     vue({
       include: [/\.vue$/, /\.md$/],
-      reactivityTransform: true,
+      // reactivityTransform: true,
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => {
+            if (customTags.has(tag))
+              return true
+          },
+        },
+      },
     }),
 
     Pages({
@@ -52,6 +70,7 @@ export default defineConfig({
       },
       importMode: 'async',
     }),
+
     Markdown({
       wrapperComponent: 'Post',
       wrapperClasses: 'prose m-auto',
@@ -89,13 +108,6 @@ export default defineConfig({
       },
     }),
 
-    UnoCSS({
-      presets: [
-        presetUno(),
-        presetAttributify(),
-      ],
-    }),
-
     Component({
       extensions: ['vue', 'md'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
@@ -103,4 +115,17 @@ export default defineConfig({
 
     }),
   ],
+  build: {
+    rollupOptions: {
+      onwarn(warning, next) {
+        if (warning.code !== 'UNUSED_EXTERNAL_IMPORT')
+          next(warning)
+      },
+    },
+  },
+
+  ssgOptions: {
+    formatting: 'minify',
+    format: 'cjs',
+  },
 })
