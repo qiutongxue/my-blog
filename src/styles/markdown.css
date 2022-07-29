@@ -12,12 +12,13 @@
 }
 
 .prose img {
-  width: 100%;
+  max-width: 100%;
 }
 
 .shiki-light {
   background: #f8f8f8 !important;
 }
+
 .shiki-dark {
   background: #0e0e0e !important;
 }
@@ -114,11 +115,11 @@ h6:focus .header-anchor {
   opacity: 0.8;
 }
 
-.prose blockquote > :first-child {
+.prose blockquote> :first-child {
   margin-top: 0;
 }
 
-.prose blockquote > :last-child {
+.prose blockquote> :last-child {
   margin-bottom: 0;
 }
 
@@ -155,10 +156,19 @@ h6:focus .header-anchor {
   opacity: 0.5;
 }
 
-.table-of-contents ul > li::before {
+.table-of-contents ul>li::before {
   display: none;
 }
 
-.table-of-contents ul > li {
+.table-of-contents ul>li {
   padding-left: 0.8rem;
+}
+
+.footnotes {
+  opacity: .6;
+  font-size: .8rem;
+}
+
+.footnotes ol>li.footnote-item::before {
+  content: "["counter(list-item, var(--list-counter-style, decimal))"]";
 }

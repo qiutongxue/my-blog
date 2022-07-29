@@ -1,16 +1,20 @@
 import { resolve } from 'path'
-import { defineConfig } from 'vite'
+import matter from 'gray-matter'
 import fs from 'fs-extra'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
-import matter from 'gray-matter'
 import Markdown from 'vite-plugin-vue-markdown'
+import Component from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
 import { presetAttributify, presetUno } from 'unocss'
 import shiki from 'markdown-it-shiki'
-import Component from 'unplugin-vue-components/vite'
 import TexMath from 'markdown-it-texmath'
 import katex from 'katex'
+import anchor from 'markdown-it-anchor'
+import toc from 'markdown-it-toc-done-right'
+import footnote from 'markdown-it-footnote'
+import slugify from './scripts/slugify'
 import { containerPlugin } from './plugins/container'
 
 // https://vitejs.dev/config/
@@ -67,7 +71,21 @@ export default defineConfig({
           .use(TexMath, {
             engine: katex,
             delimiters: 'dollars',
+            katexOptions: {
+              strict: false,
+            },
           })
+          .use(anchor, {
+            slugify,
+            permalink: anchor.permalink.linkInsideHeader({
+              symbol: '#',
+              renderAttrs: () => ({ 'aria-hidden': 'true' }),
+            }),
+          })
+          .use(toc, {
+            slugify,
+          })
+          .use(footnote)
       },
     }),
 
