@@ -56,7 +56,7 @@ public MainViewModel Main
 
 Google 的一个开源 UI 项目，Material Design的风格广泛用于安卓系统，自带icon，有很多样式选择，是一个非常好用的WPF前端框架。
 
-![md](https://gitee.com/qiutongxue/blog-images/raw/master/img/20200705160632.png)
+![md](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729143143.png)
 
 > 超级牛啤酒，用就完事了。
 
@@ -77,7 +77,7 @@ Google 的一个开源 UI 项目，Material Design的风格广泛用于安卓系
    - `Database`
    - `User Id`
    - `Password`
-  
+
   ```c#
   var conStr = "data source=127.0.0.1;port=3306;Database=testdb;User Id=root;Password=admin;"
   ```

@@ -13,13 +13,25 @@ category: 又到了我最喜欢的推荐环节
 本文仅为插件推荐，不提供插件下载，想下载插件的话就各显神通啦~
 :::
 
+
+
+## iGG 谷歌学术助手
+
+比下面的谷歌访问助手更好用，也不需要设置浏览器主页。
+
 ## 谷歌访问助手
+
+::: danger
+
+本插件在各种程度上都被 iGG 爆杀，没必要使用
+
+:::
 
 > 妈妈我终于可以访问谷歌啦
 
 谷歌访问助手，顾名思义，就是访问谷歌的助手（废话）。开启该插件可以轻松访问各种主域名为google.com的网站，当然也包括Chrome扩展商店了。所以如果想在Chrome扩展商店上下载下面推荐的原装插件的话，就先百度一个谷歌访问助手吧。
 
-::: info
+::: warning
 该插件会强制设置浏览器主页。
 :::
 
@@ -31,7 +43,7 @@ Tampermonkey，俗称油猴，是一个脚本扩展与管理插件。那什么�
 
 Tampermonkey上可以自己编写脚本（当然大部分人是不会这么做的），也可以去平台搜索脚本下载，在[Tampermonkey用户脚本源](https://www.tampermonkey.net/scripts.php)给出了几种不同的用户源，我只推荐[Greasy Fork](https://greasyfork.org/zh-CN)。在Greasy Fork上，只要搜索相关网站的名字或者想要的功能就能找到对应的脚本进行安装了。
 
-![百度云某脚本](https://gitee.com/qiutongxue/blog-images/raw/master/img/20200704235952.png)
+![百度云某脚本](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729141641.png)
 
 ## Adblock 广告拦截
 
@@ -43,13 +55,15 @@ Tampermonkey上可以自己编写脚本（当然大部分人是不会这么做�
 
 作为一个新标签页，Infinity最吸引我的是它及其丰富的网站图标，只要是稍微有那么一点名气的网站，你几乎都能找到它的标签，要实在太偏了，没关系，可以自定义嘛。默认的图标不好看？没关系，可以自定义图标嘛。
 
-![Infinity](https://gitee.com/qiutongxue/blog-images/raw/master/img/20200705002016.png)
+![Infinity](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729141703.png)
 
 Infinity支持百度、谷歌、Yahoo、必应、360、搜狗等多家搜索引擎，如果没有？没关系，搜索引擎也能自定义的。
 
 此外呢，还有图标布局、图标大小、壁纸（可与Bing每日壁纸同步）等等可供设置，其强大的功能一定可以满足绝大多数人的审美。
 
 ## Stylish 网页美化
+
+
 
 > 提升您的网上冲浪视觉观感
 
@@ -59,9 +73,9 @@ Infinity支持百度、谷歌、Yahoo、必应、360、搜狗等多家搜索引�
 
 现在知道美化的含义了吧，就是插入css代码，让网页呈现出另一种样子，但是网页的功能不会改变。在[Stylish网站](https://userstyles.org/)上可以浏览和安装一些大佬写的主流网站的样式，当然你也可以自己写。这里展示我用的Baidu样式：
 
-![Baidu1](https://gitee.com/qiutongxue/blog-images/raw/master/img/20200705005210.jpg)
+![Baidu1](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729141805.png)
 
-![Baidu2](https://gitee.com/qiutongxue/blog-images/raw/master/img/20200705005216.jpg)
+![Baidu2](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729141836.png)
 
 ## 为什么你们就是不能加个空格呢 空格之神
 
@@ -76,9 +90,9 @@ Infinity支持百度、谷歌、Yahoo、必应、360、搜狗等多家搜索引�
 
 在中文和英文/数字符号混用的情况下，加上空格往往能带来更加舒适的阅读体验，该插件能自动在没有加空格的地方加上空格，让您的冲浪步入一个新的阶级。
 
-{% note primary %}
+::: tip
 强迫症必备
-{% endnote %}
+:::
 
 ### 7.pakku B站弹幕合并
 

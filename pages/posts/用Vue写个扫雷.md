@@ -26,14 +26,14 @@ cover: 'https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019151630.j
 
 1. 点击任一格子开始游戏，且点的第一下必定不是雷
 2. 点的若是数字，不会扩散。
-    ![no-spread](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201018203432.png)
+    ![no-spread](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729144813.png)
 3. 点的若是空白，会扩散，并且扩散到数字即停止
     ![spread](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201018203332.png)
 4. 有剩余地雷提示，每插一个旗子少 1，还能变成负数
 5. 点击到地雷，游戏结束（失败），计时停止，显示所有地雷，且踩到的地雷有额外标识（红色背景）
-    ![地雷的额外标识](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201018232244.png)
+    ![地雷的额外标识](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729144833.png)
 6. 安全格子全部点完，游戏结束（胜利），计时停止，所有地雷自动插旗。
-    ![success](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201018232451.png)
+    ![success](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729144847.png)
 
 不难看出，扫雷的基本逻辑还是很简单的，“地图“可以用二维数组表示，地雷用 `-1` 表示，空白格用 `0` 表示，数字格就用相应的数字表示。点击空白格之后的扩散现象其实就是一个搜索的过程，DFS、BFS 都能实现。其它的细节在下一节会提及。
 
@@ -93,7 +93,7 @@ OK，div 还挺多的，不着急，一个个来。首先最外层的 div 是为
 
 现在就舒服多了嘛：
 
-![](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019000010.png)
+![初步布局](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729144914.png)
 
 然后在把 Vue 挂载到 `#app` 上：
 
@@ -152,7 +152,7 @@ var vm = new Vue({
 
 先把所有格子全部初始化为 `0`（为什么是 `0` 呢，后面就知道了），现在网格上全都是 0 了：
 
-![初始化网格](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019112955.png)
+![初始化网格](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729144943.png)
 
 #### 初始化地雷
 
@@ -204,7 +204,7 @@ this.$set(this.minesArray, mineRow, [...this.minesArray[mineRow]]);
 
 一开始我想的是，既然用 `$set` 可以代替的话，我直接一个 `this.$set(this.minesArray[mineRow], mineCol, -1)` 不就可以了？完全不行！我想可能是因为 Vue 仍然无法监听到 `this.minesArray[mineRow]` 的变化，那就只能用最笨的方法：复制数组了。诶果然成了！
 
-![初始化地雷](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019120003.png)
+![初始化地雷](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729144958.png)
 
 #### 初始化数字
 
@@ -252,7 +252,7 @@ var vm = new Vue({...});
 
 点击任意一格开始试试：
 
-![初始化数字](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019121105.png)
+![初始化数字](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145025.png)
 
 现在看起来很不错了，但是这数字密密麻麻的也太难受了吧！我们需要**将数字用颜色加以区分**。
 
@@ -296,7 +296,7 @@ var vm = new Vue({...});
 .num-color--2 { background: greenyellow; }
 ```
 
-![着色后](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019122847.png)
+![着色后](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145053.png)
 
 现在看着舒服多了，有点内味儿了。
 
@@ -375,7 +375,7 @@ data: {
 }
 ```
 
-{% hideToggle 之前的版本（已废除） %}
+::: details 之前的版本（已废除）
 
 在 `html` 中添加 `unvisited` 类，绑定 visited 对应坐标的结果：
 
@@ -393,7 +393,7 @@ data: {
 .unvisited { display: none; }
 ```
 
-{% endhideToggle %}
+:::
 
 在 `clickCell` 中将点击后的格子设为已访问：
 
@@ -468,7 +468,7 @@ data: {
 
 我这里用的是 DFS，纯粹是因为代码简单哈哈哈。这代码已经简单到不用我多说了。这其实就是模拟点击操作，因为 `0` 的周围 8 格必不是雷，所以看到 `0` 就把周围 8 个格子点开就完事了。当然了，BFS 应该更加正统一些，毕竟排雷都是一圈一圈排过去的嘛。
 
-![扩散](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019130824.png)
+![扩散](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145134.png)
 
 #### 游戏结束
 
@@ -508,7 +508,7 @@ fail() {
   this.showMines(false)
 },
 ```
-![游戏失败](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019145234.png)
+![游戏失败](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145155.png)
 
 胜利的判断比较复杂，我这里用的是一种比较弱智的思路：算出所有安全格子的数量 `noMineBlocks`，如果`当前的步数 === 安全格子总数`，游戏胜利：
 
@@ -586,7 +586,7 @@ showMines(isSuccess) {
 ```
 是的，看到那个注释了吗，这是我不解的地方：在这里直接设置 `visited` 的值就可以，而且不是说不需要 `$set`，而是用了 `this.$set(this.visited, i, [...this.visited[i]])` 还会报错！！
 
-![游戏胜利](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019145105.png)
+![游戏胜利](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145212.png)
 
 #### 重新开始
 
@@ -700,7 +700,7 @@ filters: {
 
 首先是未点击时方格的样子。把网格放大，一个一个数像素可以发现，每个小格子为 `16px × 16px`，小格子的主要背景颜色为 `#C0C0C0`，左上角和右下角分别有 `#FFF` 和 `#808080` 的阴影，宽度为 `2px`，使小方格看上去像【凸起】一样；另外，包裹小方格的容器在左上角和右下角有宽度为 `3px`，颜色分别为 `#A0A0A0` 和 `#FFF` 的阴影，使整块区域看上去像【陷下去】一样。
 
-![放大后的格子](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020121729.png)
+![放大后的格子](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145231.png)
 
 阴影用 `box-shadow` 就能搞定（注意要用内阴影）：
 
@@ -739,11 +739,11 @@ filters: {
 
 添加样式后的效果如下，有点内味儿了，但是总感觉缺了点什么：
 
-![](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020123250.png)
+![仙草蜜](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145247.png)
 
 放大之后发现，阴影与阴影的界限分明，并不像原版那样有过度，就使得格子不具有立体感，像泰山仙草蜜一样：
 
-![](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020123427.png)
+![放大的仙草蜜](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145314.png)
 
 在尝试了多种方式后，我最后的解决方案是多布置一个 `1px` 的阴影，假装把这两处阴影连接起来：
 
@@ -775,15 +775,15 @@ filters: {
 
 放大来看是这样的：
 
-![ok](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020124233.png)
+![ok](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145340.png)
 
 让我们缩小来看看，AMAZING 啊，效果非常完美，与原版如出一辙！
 
-![完美](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020124024.png)
+![完美](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145356.png)
 
 接着是点开之后的样子，放大来看看：
 
-![放大](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020124529.png)
+![放大](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145412.png)
 
 阴影消失，边框出现。阴影消失很简单，直接 `background` 颜色覆盖就行。但是这个边框最好不要用 `border`，因为 `border` 的宽度和 `width height` 的大小是不重合的，加了 `border` 会让一个格子的大小变成 `18px`，并且格子与格子之间的间隙也会多出 `1px`。所以我们直接用内阴影：
 
@@ -799,7 +799,7 @@ filters: {
 }
 ```
 
-{% hideToggle old-version %}
+::: old-version
 ```css
 .num-color {  // 懒得添加新类了，就在这里编辑^^
   font-weight: bold;
@@ -808,13 +808,13 @@ filters: {
   box-shadow: 1px 1px #808080 inset;
 }
 ```
-{% endhideToggle %}
+:::
 
 
 
 味儿更浓啦：
 
-![nice](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020125510.png)
+![nice](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145426.png)
 
 ### 消零
 
@@ -845,7 +845,7 @@ filters: {
 
 但是测试的时候发现，本来是 `0` 的方格一点变化都没有，就像是未点击一样：
 
-![no](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020130746.png)
+![no](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145459.png)
 
 实际上是因为 `div` 是跟着内容变的，返回了一个 `''` 值后，`div` 认为自己没有容纳任何东西，就不出现。解决方法也很简单，只要给这个 `div` 一个大小就行：
 
@@ -859,7 +859,7 @@ filters: {
 
 实际效果：
 
-![](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201020131216.png)
+![good](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145513.png)
 
 现在的话扫雷味儿就很足了吧。
 
@@ -968,13 +968,13 @@ filters: {
 
 效果如下：
 
-![效果](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201023215920.png)
+![效果](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145548.png)
 
 ### 向按钮中添加表情
 
 从 [iconfont](https://www.iconfont.cn/) 中找几个有代表性的表情放到项目中：
 
-![iconfont表情](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201023215335.png)
+![iconfont表情](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145600.png)
 
 引入 js 文件：
 
@@ -1082,7 +1082,7 @@ methods: {
 
 这。。勉强够用哈
 
-![](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201028220655.png)
+![加上字体后](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145616.png)
 
 ## 代码优化
 
@@ -1172,7 +1172,7 @@ mounted() {
 
 这样每个格子都由这个 `cell` 进行管理，~~实际上已经脱离了二维数组 `cellMatrix`，`cell` 中属性的改变可以被监听到~~，跳出了那个巨坑，不再需要 `this.$set()` 了。
 
-{% note warning %}
+::: warning
 2020.11.13 指正： 能被监听到的原因与二维数组的初始化中的 `push` 有关。
 
 ```js
@@ -1183,7 +1183,7 @@ mounted() {
         }
       }
 ```
-{% endnote %}
+:::
 
 然后对 js 代码进行修改，这里把相关变化的贴出来：
 
@@ -1380,7 +1380,7 @@ if (cell.val === -1) {
 
 效果还不错：
 
-![boom](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201028182350.png)
+![boom](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145711.png)
 
 ### 插旗
 
@@ -1388,7 +1388,7 @@ if (cell.val === -1) {
 
 首先，去 iconfont 找个合适的旗子（别把国旗整来了），别忘了刷新 js 代码。
 
-![](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201028202134.png)
+![flag](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729145729.png)
 
 一般来讲，右键插旗，可是浏览器右键弹出菜单了，怎么办？使用 `@contextmenu.prevent`，阻止右键菜单事件，用 `setFlag()` 取而代之：
 

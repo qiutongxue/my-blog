@@ -293,7 +293,7 @@ if __name__ == "__main__":
 
 到此为止，就全都结束了，将文件放到 `.log` 文件同一目录下，运行之后生成的 Excel 表格效果如图：
 
-![实际效果](https://gitee.com/qiutongxue/blog-images/raw/master/img/20200824144519.png)
+![实际效果](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729141312.png)
 
 
 ::: details 完整代码
