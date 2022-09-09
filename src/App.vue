@@ -10,14 +10,7 @@ import Nav from './components/Nav.vue'
     <header>
       <Nav />
     </header>
-    <main>
-      <!-- <a href="https://vitejs.dev" target="_blank">
-        <img src="/vite.svg" class="logo" alt="Vite logo">
-      </a>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
-      </a> -->
-      <!-- <HelloWorld msg="Vite + Vue" /> -->
+    <main px-7 py-10>
       <RouterView />
     </main>
     <footer />
