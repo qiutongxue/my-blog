@@ -7,7 +7,7 @@ import Pages from 'vite-plugin-pages'
 import Markdown from 'vite-plugin-vue-markdown'
 import Component from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
-import { presetAttributify, presetUno } from 'unocss'
+import { presetAttributify, presetIcons, presetUno } from 'unocss'
 import shiki from 'markdown-it-shiki'
 import TexMath from 'markdown-it-texmath'
 import katex from 'katex'
@@ -16,9 +16,8 @@ import toc from 'markdown-it-toc-done-right'
 import footnote from 'markdown-it-footnote'
 import slugify from './scripts/slugify'
 import { containerPlugin } from './plugins/container'
-
-const customTags = new Set(['mi', 'mrow', 'annotation', 'mover', 'mo', 'semantics', 'math', 'eq',
-  'mfrac', 'mstyle', 'mn', 'eqn', 'mtext', 'msub', 'mspace', 'msubsup', 'msup', 'mtd', 'mtr', 'mtable', 'center'])
+import { customTags } from './scripts/customTags'
+import { countMarkdownWords } from './scripts/countMarkdownWords'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,6 +31,12 @@ export default defineConfig({
       presets: [
         presetUno(),
         presetAttributify(),
+        presetIcons({
+          extraProperties: {
+            'display': 'inline-block',
+            'vertical-align': 'middle',
+          },
+        }),
       ],
     }),
 
@@ -40,10 +45,7 @@ export default defineConfig({
       // reactivityTransform: true,
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => {
-            if (customTags.has(tag))
-              return true
-          },
+          isCustomElement: tag => customTags.has(tag),
         },
       },
     }),
@@ -58,12 +60,13 @@ export default defineConfig({
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
         route.path = encodeURI(route.path)
-        // console.log('path', path)
+
         if (!path.includes('projects.md')) {
           const md = fs.readFileSync(path, 'utf-8')
-          const { data } = matter(md)
-          // console.log(data)
-          route.meta = Object.assign(route.meta || {}, { frontmatter: data })
+          const { data, content } = matter(md)
+          const total = countMarkdownWords(content)
+          route.meta = Object.assign(route.meta || {}, { frontmatter: { ...data, total } })
+          // console.log(route.meta)
         }
 
         return route

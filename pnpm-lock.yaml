@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.25.2
+  '@iconify-json/carbon': ^1.1.7
   '@sindresorhus/slugify': ^2.1.0
   '@types/fs-extra': ^9.0.13
   '@types/markdown-it': ^12.2.3
@@ -37,6 +38,7 @@ specifiers:
   vue-tsc: ^0.38.4
 
 dependencies:
+  '@iconify-json/carbon': 1.1.7
   '@vueuse/core': 9.0.0_vue@3.2.37
   '@vueuse/head': 0.7.7_vue@3.2.37
   nprogress: 0.2.0
@@ -260,6 +262,12 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@iconify-json/carbon/1.1.7:
+    resolution: {integrity: sha512-QULSpNWKaX4auIbjITDynfALdJYvOOy/xZb+aLOqCgvpBcmbz5tbqvow4r25FWtVsi4FHVpNQ8vyJZXsD1Hlxg==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: false
 
   /@iconify/types/1.1.0:
     resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}

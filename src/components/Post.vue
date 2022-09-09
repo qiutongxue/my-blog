@@ -10,12 +10,17 @@ const { frontmatter } = defineProps({
     required: true,
   },
 })
-useHead({
-  link: [
-    { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css' },
-    { ref: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css' },
-  ],
-})
+
+// 仅在显式声明 Katex 的情况下引入 katex
+if (frontmatter.katex) {
+  useHead({
+    link: [
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css' },
+      { ref: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css' },
+    ],
+  })
+}
+
 const router = useRouter()
 const route = useRoute()
 const content = ref<HTMLDivElement>()
@@ -72,6 +77,11 @@ onMounted(() => {
 <template>
   <div>
     <div v-if="frontmatter.display ?? frontmatter.title" class="prose m-auto mb-8">
+      <div text-sm flex justify-end italic op-80>
+        {{ (route.meta.frontmatter as any).total }}
+        words
+      </div>
+
       <h1 class="mb-0">
         {{ frontmatter.display ?? frontmatter.title }}
       </h1>
