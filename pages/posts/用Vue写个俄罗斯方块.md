@@ -9,11 +9,11 @@ katex: false
 sticky: 0
 date: 2020-11-19 17:56:10
 tags: ['Vue']
-category: 计算机相关
+category: 原创
 keywords: Vue
 description: 
 top_img:
-cover: 'https://gitee.com/qiutongxue/blog-images/raw/master/img/20201119201746.jpg'
+cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908174947.png'
 ---
 
 codepen：[https://codepen.io/dinnerwithouttomato/pen/YzWdreY](https://codepen.io/dinnerwithouttomato/pen/YzWdreY)

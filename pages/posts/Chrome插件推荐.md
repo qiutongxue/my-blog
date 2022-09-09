@@ -4,9 +4,9 @@ author: Berry Qiu
 title: Chrome插件推荐
 date: 2020-02-25
 description: 个人体验极佳的Chrome插件
-cover: 'https://gitee.com/qiutongxue/blog-images/raw/master/img/20200701154538.png'
+cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908175157.png'
 tags: ['Chrome', '插件']
-category: 又到了我最喜欢的推荐环节
+category: 原创
 ---
 
 ::: warning

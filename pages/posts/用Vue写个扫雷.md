@@ -9,11 +9,11 @@ katex: false
 sticky: 0
 date: 2020-10-18 17:34:05
 tags: ['Vue']
-category: 计算机相关
+category: 原创
 keywords:
 description: 玩扫雷有感
 top_img:
-cover: 'https://gitee.com/qiutongxue/blog-images/raw/master/img/20201019151630.jpg'
+cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908175059.png'
 ---
 
 代码放在 CodePen 上：[https://codepen.io/dinnerwithouttomato/pen/BazzaZK](https://codepen.io/dinnerwithouttomato/pen/BazzaZK)
@@ -98,9 +98,11 @@ OK，div 还挺多的，不着急，一个个来。首先最外层的 div 是为
 然后在把 Vue 挂载到 `#app` 上：
 
 ```js
-var vm = new Vue({
-  el: "#app",
-  data: {
+const vm = new Vue({
+  el: '#app',
+  filters: {},
+  data() {
+    return {
       isGameOver: false,
       isFirstClick: true,
       minesArray: '',
@@ -108,16 +110,16 @@ var vm = new Vue({
       colSize: 8,
       mineSize: 9,
       btnContent: 'emoji-smile',
-      //timer: '',
-      //time: 0.0,
-      //visited: '',
-      //noMineBlocks: ''
-  },
-  methods: {
-      clickCell(row, col) { /* 网格点击事件 */ },
+      // timer: '',
+      // time: 0.0,
+      // visited: '',
+      // noMineBlocks: ''
+    }
   },
   mounted() {},
-  filters: {}
+  methods: {
+    clickCell(row, col) { /* 网格点击事件 */ },
+  }
 })
 ```
 
@@ -195,8 +197,8 @@ var vm = new Vue({
 有一个很大很大很大的坑，注意
 
 ```js
-this.minesArray[mineRow][mineCol] = -1;
-this.$set(this.minesArray, mineRow, [...this.minesArray[mineRow]]);
+this.minesArray[mineRow][mineCol] = -1
+this.$set(this.minesArray, mineRow, [...this.minesArray[mineRow]])
 ```
 
 1. 为什么要多写一个 `$set`？参考 [Vue 检测变化的注意事项](https://cn.vuejs.org/v2/guide/reactivity.html#%E6%A3%80%E6%B5%8B%E5%8F%98%E5%8C%96%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) ，对于数组，直接引用下标改变值时 Vue 无法监听到数据变化，数据不能做相应的更新，需要使用 `$set` 代替。
@@ -547,7 +549,7 @@ clickCell(row, col) {
 
 ```js
 if (this.visited[row][col] || this.isGameOver) {
-    return;
+
 }
 ```
 
@@ -1093,13 +1095,13 @@ methods: {
 ```js
 class Cell {
   constructor(row, col) {
-    this.row = row;
-    this.col = col;
-    this.isVisited = false;
-    this.isFlagged = false;
-    this.cell = "";
-    this.val = 0;
-    this.neighbors = [];
+    this.row = row
+    this.col = col
+    this.isVisited = false
+    this.isFlagged = false
+    this.cell = ''
+    this.val = 0
+    this.neighbors = []
   }
 }
 ```
@@ -1176,12 +1178,12 @@ mounted() {
 2020.11.13 指正： 能被监听到的原因与二维数组的初始化中的 `push` 有关。
 
 ```js
-      for (let row = 0; row < this.rowSize; row++) {
-        this.cellMatrix.push(new Array());
-        for (let col = 0; col < this.colSize; col++) {
-          this.cellMatrix[row].push(new Cell(row, col));
-        }
-      }
+for (let row = 0; row < this.rowSize; row++) {
+  this.cellMatrix.push([])
+  for (let col = 0; col < this.colSize; col++)
+    this.cellMatrix[row].push(new Cell(row, col))
+
+}
 ```
 :::
 
@@ -1371,10 +1373,10 @@ methods: {
 
 ```js
 if (cell.val === -1) {
-    // 踩雷了，爆炸
-    cell.isClickedBoom = true;
-    this.fail();
-    return;
+  // 踩雷了，爆炸
+  cell.isClickedBoom = true
+  this.fail()
+
 }
 ```
 

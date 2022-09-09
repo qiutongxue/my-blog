@@ -4,9 +4,9 @@ author: Berry Qiu
 title: WPF/C# 探秘
 date: 2020-03-06
 description: 做毕设过程中的一些发现
-cover: https://gitee.com/qiutongxue/blog-images/raw/master/img/20200512132125.jpg
+cover: https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908175238.png
 tags: ['WPF', 'C#']
-category: 计算机相关
+category: 原创
 katex: true
 ---
 

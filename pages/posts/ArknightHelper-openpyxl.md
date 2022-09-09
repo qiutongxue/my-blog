@@ -5,8 +5,8 @@ title: 基于 openpyxl 的明日方舟护肝助手 LOG to EXCEL
 date: 2020-08-11
 description: 使用 openpyxl 将日志文件转化成 Excel 表格，并能分析日志内容，在 Excel 文件中呈现
 tags: ['python']
-category: '计算机相关'
-cover: 'https://gitee.com/qiutongxue/blog-images/raw/master/img/20200824151552.jpg'
+category: '原创'
+cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908175123.png'
 ---
 
 最近沉迷明日方舟，但是这游戏太肝了，代理作战必须要看着电脑打，还得时不时瞟两眼看看有没有打完，属实浪费时间。还好 github 上有大佬做了明日方舟护肝助手 [ArknightsAutoHelper](https://github.com/ninthDevilHAUNSTER/ArknightsAutoHelper)，总算解放了双手，解放了大脑，解放了灵魂。
