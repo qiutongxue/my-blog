@@ -16,6 +16,8 @@ top_img:
 cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908175059.png'
 ---
 
+[toc]
+
 代码放在 CodePen 上：[https://codepen.io/dinnerwithouttomato/pen/BazzaZK](https://codepen.io/dinnerwithouttomato/pen/BazzaZK)
 
 体验地址：[https://qiutongxue.gitee.io/webpage/minesweeper/](https://qiutongxue.gitee.io/webpage/minesweeper/)
