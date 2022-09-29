@@ -22,7 +22,9 @@ const rem2Px = (rem: number) => {
 let preWidth = 0
 
 const render = useThrottleFn(() => {
-  const wrapperEl = wrapper.value!
+  const wrapperEl = wrapper.value
+  if (!wrapperEl)
+    return
   wrapperEl.style.position = 'relative'
 
   const { width: wrapperWidth } = wrapperEl.getBoundingClientRect()
@@ -73,7 +75,9 @@ const render = useThrottleFn(() => {
 
 onMounted(() => {
   render()
-  window.addEventListener('resize', render)
+  const observer = new ResizeObserver(render)
+  observer.observe(document.documentElement)
+  // window.addEventListener('resize', render)
 })
 </script>
 
@@ -83,8 +87,8 @@ onMounted(() => {
   </div>
 </template>
 
-<style>
-.masonry div {
+<style scoped>
+.masonry > :slotted(*) {
   transition: .5s ease;
 }
 </style>

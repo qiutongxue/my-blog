@@ -18,7 +18,7 @@ const navs = [
     </RouterLink>
     <div class="nav">
       <RouterLink
-        v-for="nav in navs" :key="nav.name" :to="nav.link"
+        v-for="nav in navs" :key="nav.name" :to="nav.link" :title="nav.name"
         px-4
       >
         {{ nav.name }}

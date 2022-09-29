@@ -23,6 +23,7 @@ if (frontmatter.katex) {
 
 const router = useRouter()
 const route = useRoute()
+
 const content = ref<HTMLDivElement>()
 
 onMounted(() => {
@@ -77,14 +78,15 @@ onMounted(() => {
 <template>
   <div>
     <div v-if="frontmatter.display ?? frontmatter.title" class="prose m-auto mb-8">
-      <div text-sm flex justify-end italic op-80>
-        {{ (route.meta.frontmatter as any).total }}
-        words
-      </div>
+      <template v-if="!frontmatter.layout || frontmatter.layout === 'post'">
+        <div text-sm flex justify-end italic op-80 class="words-counter">
+          {{ (route.meta.frontmatter as any).total }}
+        </div>
+        <h1 class="mb-0">
+          {{ frontmatter.display ?? frontmatter.title }}
+        </h1>
+      </template>
 
-      <h1 class="mb-0">
-        {{ frontmatter.display ?? frontmatter.title }}
-      </h1>
       <!-- <p v-if="frontmatter.date" class="opacity-50 !-mt-2">
         {{ formatDate(frontmatter.date) }} <span v-if="frontmatter.duration">· {{ frontmatter.duration }}</span>
       </p> -->
@@ -109,5 +111,8 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
+.words-counter::after {
+  content: 'words';
+  margin-left: .3rem;
+}
 </style>

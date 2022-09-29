@@ -35,7 +35,11 @@ const routes = router.getRoutes()
       v-for="post in routes" :key="post.name" class="post-sec"
       pb-6 border-rounded-2 overflow-hidden
     >
-      <div v-if="post.frontmatter.cover" :style="`background-image: linear-gradient(0deg, rgba(0,0,0,.05), transparent), url(${post.frontmatter.cover})`" class="post-cover" />
+      <div
+        v-if="post.frontmatter.cover"
+        :style="`background-image: linear-gradient(0deg, rgba(0,0,0,.05), transparent), url(${post.frontmatter.cover})`"
+        class="post-cover"
+      />
       <div px-4 pt-4>
         <div class="post-title">
           <a :href="post.path">{{ post.name }}</a>
