@@ -8,6 +8,10 @@ const navs = [
     name: 'Archived',
     link: '/archived',
   },
+  {
+    name: 'Notes',
+    link: '/notes',
+  },
 ]
 </script>
 

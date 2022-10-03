@@ -2,5 +2,5 @@
 title: Blog - @Mengdelr
 layout: index
 ---
-<ListPosts />
+<ListPosts path="/posts/"/>
 

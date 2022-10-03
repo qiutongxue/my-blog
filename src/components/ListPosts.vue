@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import Masonry from './Masonry.vue'
+const props = defineProps<{
+  path: string
+}>()
 const router = useRouter()
 
 const dateFormatter = (date: string) => {
@@ -9,7 +12,7 @@ const dateFormatter = (date: string) => {
 }
 
 const routes = router.getRoutes()
-  .filter(route => route.path.startsWith('/posts/'))
+  .filter(route => route.path.startsWith(`${props.path}`))
   .map((route) => {
     const routeName = String(route.name)
     const frontmatter = route.meta.frontmatter as Record<string, any>
