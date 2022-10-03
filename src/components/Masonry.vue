@@ -74,7 +74,7 @@ const render = useThrottleFn(() => {
 }, 66)
 
 onMounted(() => {
-  render()
+  setTimeout(() => render(), 200)
   const observer = new ResizeObserver(render)
   observer.observe(document.documentElement)
   // window.addEventListener('resize', render)

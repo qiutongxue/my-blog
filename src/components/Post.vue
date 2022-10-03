@@ -79,12 +79,18 @@ onMounted(() => {
   <div>
     <div v-if="frontmatter.display ?? frontmatter.title" class="prose m-auto mb-8">
       <template v-if="!frontmatter.layout || frontmatter.layout === 'post'">
-        <div text-sm flex justify-end italic op-80 class="words-counter">
-          {{ (route.meta.frontmatter as any).total }}
+        <div class="!mb-20">
+          <img v-if="frontmatter.cover" :src="frontmatter.cover">
+          <div text-sm flex justify-end italic op-80 class="words-counter">
+            {{ (route.meta.frontmatter as any).total }}
+          </div>
+          <h1 class="mb-0" text-center>
+            {{ frontmatter.display ?? frontmatter.title }}
+          </h1>
+          <p text-center text-gray-500 italic>
+            {{ frontmatter.date.split("T")[0].replace(/-/g, '/') }}
+          </p>
         </div>
-        <h1 class="mb-0">
-          {{ frontmatter.display ?? frontmatter.title }}
-        </h1>
       </template>
 
       <!-- <p v-if="frontmatter.date" class="opacity-50 !-mt-2">
