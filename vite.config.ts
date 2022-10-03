@@ -59,7 +59,7 @@ export default defineConfig({
       // ],
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
-        route.path = encodeURI(route.path)
+        route.path = encodeURI(encodeURI(route.path))
 
         if (!path.includes('projects.md')) {
           const md = fs.readFileSync(path, 'utf-8')
