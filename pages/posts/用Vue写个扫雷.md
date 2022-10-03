@@ -30,7 +30,7 @@ cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/202209081750
 2. 点的若是数字，不会扩散。
     ![no-spread](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729144813.png)
 3. 点的若是空白，会扩散，并且扩散到数字即停止
-    ![spread](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201018203332.png)
+    ![spread](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20221003164417.png)
 4. 有剩余地雷提示，每插一个旗子少 1，还能变成负数
 5. 点击到地雷，游戏结束（失败），计时停止，显示所有地雷，且踩到的地雷有额外标识（红色背景）
     ![地雷的额外标识](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220729144833.png)
@@ -1340,7 +1340,7 @@ methods: {
 
 首先，还是去 iconfont 上找个符合意境的图标，小小的编辑一下大小、名字等等（别忘了更新 js 哦）：
 
-![boom-icon](https://gitee.com/qiutongxue/blog-images/raw/master/img/20201028181441.png)
+![boom-icon](https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20221003164627.png)
 
 把代码扔到 html 里，使用 `v-if` 控制其出现的位置：
 
