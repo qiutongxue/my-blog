@@ -11,13 +11,28 @@ import NProgress from 'nprogress'
 import App from './App.vue'
 import routes from '~pages'
 
+const decodingDepth = (s: string): [number, string] => {
+  const decodedS = decodeURI(s)
+  if (s === decodedS)
+    return [0, s]
+  const result = decodingDepth(decodedS)
+  return [result[0] + 1, result[1]]
+}
+
 export const createApp = ViteSSG(
   App,
   { routes },
   ({ router, isClient }) => {
     if (isClient) {
-      router.beforeEach(() => { NProgress.start(); console.log('before', router.currentRoute.value) })
-      router.afterEach(() => { NProgress.done(); console.log('after', router.currentRoute.value) })
+      router.beforeEach(() => { NProgress.start() })
+      router.afterEach(() => {
+        NProgress.done()
+        const path = router.currentRoute.value.path
+        const [depth, result] = decodingDepth(path)
+        if (depth <= 1)
+          return
+        router.replace(encodeURI(result))
+      })
     }
   },
 )
