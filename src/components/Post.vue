@@ -23,11 +23,14 @@ if (frontmatter.katex) {
 
 const router = useRouter()
 const route = useRoute()
+console.log('routes', router.getRoutes())
+console.log('route:fullPath', route.fullPath)
 
 const content = ref<HTMLDivElement>()
 
 onMounted(() => {
   const navigate = () => {
+    console.log('navigate', location.hash, location.href)
     if (location.hash) {
       document.querySelector(decodeURIComponent(location.hash))
         ?.scrollIntoView({ behavior: 'smooth' })
