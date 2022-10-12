@@ -13,7 +13,7 @@ category: 原创
 keywords:
 description: 玩扫雷有感
 top_img:
-cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908175059.png'
+cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/vue_minesweeper.svg'
 ---
 
 [toc]

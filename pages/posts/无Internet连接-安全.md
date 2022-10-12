@@ -4,7 +4,7 @@ description: 在更换主路由之后，我遇到了无法上网的问题……
 title: '手机能上网，电脑却是「无 Internet 连接，安全」？'
 date: 2022-10-3
 category: 原创
-cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/nointernet.png'
+cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/noInternet.svg'
 ---
 
 [toc]

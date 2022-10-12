@@ -13,7 +13,7 @@ category: 原创
 keywords: Vue
 description: 
 top_img:
-cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908174947.png'
+cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/tetris.svg'
 ---
 
 [toc]

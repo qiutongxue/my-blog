@@ -7,13 +7,13 @@ copyright: true
 mathjax: false
 katex: false
 sticky: 0
-date: 2020-10-18 17:34:05
+date: 2022-6-18 17:34:05
 tags: ['JavaScript']
 category: 笔记
 keywords:
-description: 可能有关的设计模式？
+description: '在 JavaScript 中，设计模式另有玄机……'
 top_img:
-cover: ''
+cover: 'https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/创作型ppt.svg'
 ---
 
 [toc]

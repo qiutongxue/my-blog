@@ -4,7 +4,7 @@ author: Berry Qiu
 title: WPF/C# 探秘
 date: 2020-03-06
 description: 做毕设过程中的一些发现
-cover: https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/20220908175238.png
+cover: https://markdown-img-1306901910.cos.ap-nanjing.myqcloud.com/csharp_wpf.svg
 tags: ['WPF', 'C#']
 category: 原创
 katex: true
