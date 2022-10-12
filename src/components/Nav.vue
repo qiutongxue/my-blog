@@ -16,7 +16,7 @@ const navs = [
 </script>
 
 <template>
-  <div flex justify-between w="100vw" p-8 items-center>
+  <div flex justify-between w="100%" p-8 items-center>
     <RouterLink to="/" class="logo" px-4>
       Qiutongxue
     </RouterLink>
