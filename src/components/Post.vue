@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useEventListener } from '@vueuse/core'
 import { useHead } from '@vueuse/head'
+import ImageViewer from './ImageViewer.vue'
 
 const { frontmatter } = defineProps({
   frontmatter: {
@@ -11,7 +12,7 @@ const { frontmatter } = defineProps({
   },
 })
 
-// 仅在显式声明 Katex 的情况下引入 katex
+// 仅在显式声明 Katex 的情况下引入 katex 样式
 if (frontmatter.katex) {
   useHead({
     link: [
@@ -23,14 +24,13 @@ if (frontmatter.katex) {
 
 const router = useRouter()
 const route = useRoute()
-// console.log('routes', router.getRoutes())
-// console.log('route:fullPath', route.fullPath)
 
 const content = ref<HTMLDivElement>()
+const imgSrc = ref('')
+const show = ref(false)
 
 onMounted(() => {
   const navigate = () => {
-    // console.log('navigate', location.hash, location.href)
     if (location.hash) {
       document.querySelector(decodeURIComponent(location.hash))
         ?.scrollIntoView({ behavior: 'smooth' })
@@ -75,6 +75,14 @@ onMounted(() => {
 
   navigate()
   setTimeout(navigate, 500)
+
+  const imgs = document.querySelectorAll('article .prose img')
+  imgs.forEach((img) => {
+    img.addEventListener('click', () => {
+      imgSrc.value = img.getAttribute('src') || ''
+      show.value = true
+    })
+  })
 })
 </script>
 
@@ -116,6 +124,7 @@ onMounted(() => {
         cd ..
       </router-link>
     </div>
+    <ImageViewer v-model:show="show" :src="imgSrc" />
   </div>
 </template>
 
