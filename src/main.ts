@@ -15,8 +15,8 @@ const decodingDepth = (s: string): [number, string] => {
   const decodedS = decodeURI(s)
   if (s === decodedS)
     return [0, s]
-  const result = decodingDepth(decodedS)
-  return [result[0] + 1, result[1]]
+  const [depth, result] = decodingDepth(decodedS)
+  return [depth + 1, result]
 }
 
 export const createApp = ViteSSG(
