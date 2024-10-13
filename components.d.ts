@@ -12,7 +12,9 @@ declare module 'vue' {
     Masonry: typeof import('./src/components/Masonry.vue')['default']
     Nav: typeof import('./src/components/Nav.vue')['default']
     Post: typeof import('./src/components/Post.vue')['default']
+    Rating: typeof import('./src/components/Rating.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    StarRailYHLP: typeof import('./src/components/StarRailYHLP.vue')['default']
   }
 }

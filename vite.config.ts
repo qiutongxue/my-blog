@@ -38,6 +38,14 @@ export default defineConfig({
           },
         }),
       ],
+      safelist: [
+        'transform-rotate-0',
+        'transform-rotate-60',
+        'transform-rotate-120',
+        'transform-rotate-180',
+        'transform-rotate-240',
+        'transform-rotate-300',
+      ],
     }),
 
     vue({

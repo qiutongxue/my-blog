@@ -12,6 +12,10 @@ const navs = [
     name: 'Notes',
     link: '/notes',
   },
+  {
+    name: 'Tools',
+    link: '/tools',
+  }
 ]
 </script>
 
