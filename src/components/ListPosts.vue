@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import Masonry from './Masonry.vue'
+
 const props = defineProps<{
   path: string
 }>()
 const router = useRouter()
 
-const dateFormatter = (date: string) => {
-  const ymd = date.split('T')[0]
+function dateFormatter(date: string) {
+  const ymd = date?.split('T')[0] ?? ''
   return ymd
 }
 
@@ -88,11 +89,11 @@ const routes = router.getRoutes()
   height: calc(var(--width) / 16 * 9);
 }
 
-.post-desc {
+/* .post-desc {
 
-}
+} */
 
-.post-date {
- /* transform: scale(.8); */
-}
+/* .post-date {
+  transform: scale(.8);
+} */
 </style>

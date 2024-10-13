@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import { useEventListener } from '@vueuse/core'
 import { useHead } from '@vueuse/head'
+import { onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import ImageViewer from './ImageViewer.vue'
 
 const { frontmatter } = defineProps({
@@ -17,7 +17,7 @@ if (frontmatter.katex) {
   useHead({
     link: [
       { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css' },
-      { ref: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css' },
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css' },
     ],
   })
 }
@@ -99,7 +99,7 @@ onMounted(() => {
             {{ frontmatter.display ?? frontmatter.title }}
           </h1>
           <p text-center text-gray-500 italic>
-            {{ frontmatter.date.split("T")[0].replace(/-/g, '/') }}
+            {{ frontmatter?.date?.split("T")[0].replace(/-/g, '/') ?? '' }}
           </p>
         </div>
       </template>
