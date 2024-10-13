@@ -15,8 +15,8 @@ const gapYRem = props.y === undefined ? 2 : props.y
  * 将 rem 转成 px
  * @param rem
  */
-const rem2Px = (rem: number) => {
-  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+function rem2Px(rem: number) {
+  return rem * Number.parseFloat(getComputedStyle(document.documentElement).fontSize)
 }
 
 let preWidth = 0
@@ -37,7 +37,8 @@ const render = useThrottleFn(() => {
   const items = Array.from(wrapperEl.children) as HTMLElement[]
   const { width: itemWidth } = items[0].getBoundingClientRect()
 
-  const gapX = rem2Px(gapXRem); const gapY = rem2Px(gapYRem)
+  const gapX = rem2Px(gapXRem)
+  const gapY = rem2Px(gapYRem)
 
   /*
     计算列数

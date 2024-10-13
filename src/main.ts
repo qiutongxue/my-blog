@@ -1,17 +1,17 @@
+import routes from '~pages'
+import NProgress from 'nprogress'
 import { ViteSSG } from 'vite-ssg'
+import App from './App.vue'
 import 'uno.css'
 import '@unocss/reset/tailwind.css'
 import './style.css'
 import './styles/markdown.css'
+
 import './styles/main.css'
 import './styles/prose.css'
 import './styles/custom-block.css'
 
-import NProgress from 'nprogress'
-import App from './App.vue'
-import routes from '~pages'
-
-const decodingDepth = (s: string): [number, string] => {
+function decodingDepth(s: string): [number, string] {
   const decodedS = decodeURI(s)
   if (s === decodedS)
     return [0, s]
@@ -24,7 +24,9 @@ export const createApp = ViteSSG(
   { routes },
   ({ router, isClient }) => {
     if (isClient) {
-      router.beforeEach(() => { NProgress.start() })
+      router.beforeEach(() => {
+        NProgress.start()
+      })
       router.afterEach(() => {
         NProgress.done()
         const path = router.currentRoute.value.path

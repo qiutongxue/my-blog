@@ -10,7 +10,7 @@ const emit = defineEmits(['update:show'])
 
 const lock = useScrollLock(document.documentElement)
 
-const close = () => {
+function close() {
   emit('update:show', false)
 }
 
